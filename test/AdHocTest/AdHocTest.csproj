@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!--<TargetFrameworks>net46;netcoreapp2.0</TargetFrameworks>-->
+    <TargetFrameworks>net452</TargetFrameworks>
+    <RuntimeIdentifiers>win7-x86;win7-x64</RuntimeIdentifiers>
+    <RuntimeIdentifier Condition=" '$(TargetFramework)' == 'net452' ">win7-x86</RuntimeIdentifier>
+    <DebugType>portable</DebugType>
+    <AssemblyName>AdHocTest</AssemblyName>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Legacy_SDS' ">
+    <DefineConstants>$(DefineConstants);LEGACY_SDS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)'!='Legacy_SDS' ">
+    <ProjectReference Include="..\..\System.DirectoryServices.Protocols.Services\System.DirectoryServices.Protocols.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' AND '$(Configuration)'=='Legacy_SDS' ">
+    <Reference Include="System.DirectoryServices" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' != 'net452' ">
+    <!--<PackageReference Include="System.DirectoryServices" Version="4.4.0-*" />-->
+  </ItemGroup>
+</Project>

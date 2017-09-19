@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AdHocTest": {
+      "commandName": "Executable",
+      "executablePath": "..\\AdHocTest\\bin\\Debug\\net452\\win7-x86\\AdHocTest.exe"
+    },
+    "Legacy AdHocTest": {
+      "commandName": "Executable",
+      "executablePath": "..\\AdHocTest\\bin\\Legacy_SDS\\net452\\win7-x86\\AdHocTest.exe"
+    }
+  }
+}
